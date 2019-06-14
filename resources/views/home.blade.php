@@ -37,7 +37,7 @@
                     </a>
                     @isset($image->description)
                         <div class="card-body">
-                            <p class="card-text">{{ $image->description }}</p>
+                            <p class="card-text">{{ $image->description }} </p>
                         </div>
                     @endisset
                     <div class="card-footer text-muted">
@@ -52,6 +52,7 @@
                                 ) {{ $image->created_at->formatLocalized('%x') }}
                             </em>
                         </div>
+
                         <div class="star-rating" id="{{ $image->id }}">
                             <span class="count-number">({{ $image->users->count() }})</span>
                             <div id="{{ $image->id . '.5' }}" data-toggle="tooltip" title="5"
@@ -120,6 +121,13 @@
                                 @endadminOrOwner
                             </span>
                         </div>
+                        @if($image->vente == true)
+                            <div class="pull-right" style="background-color: green;">
+                                <a href="{{$image->id}}/enchere" style="color: white;">
+                                    A vendre
+                                </a>
+                            </div>
+                        @endif
                         <!--
                         Put here the comment part
                         if the actual user doesn't comment picture, add an input

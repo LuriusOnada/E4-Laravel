@@ -62,6 +62,10 @@ Route::name ('user')->get ('user/{user}', 'ImageController@user');
 Route::name ('language')->get ('language/{lang}', 'HomeController@language');
 Route::middleware('ajax')->name('image.click')->patch('image/{image}/click', 'ImageController@click');
 
+Route::get('{image_id}/enchere', 'EnchereController@index');
+Route::get('{image_id}/enchere/new', 'EnchereController@create');
+Route::post('{image_id}/enchere/new', 'EnchereController@store');
+
 Route::view ('/legal', 'legal');
 Route::view ('/privacy', 'privacy');
 

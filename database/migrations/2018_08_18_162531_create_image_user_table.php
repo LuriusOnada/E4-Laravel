@@ -19,7 +19,6 @@ class CreateImageUserTable extends Migration
 
             $table->timestamps();
             $table->integer('rating')->nullable();
-            $table->string('comment')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('image_id')->references('id')->on('images')->onDelete('cascade');

@@ -58,13 +58,5 @@ class RatingsTableSeeder extends Seeder
                 'rating' => 3,
             ]
         ]);
-
-        \DB::table('image_user')->insert([
-            0 => [
-                'image_id' => 43,
-                'user_id' => 2,
-                'comment' => "Test",
-            ]
-        ]);
     }
 }

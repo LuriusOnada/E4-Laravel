@@ -21,6 +21,9 @@ class CreateImagesTable extends Migration
             $table->string('description')->nullable();
             $table->boolean('adult')->default(false);
             $table->integer ('clicks')->unsigned()->default(0);
+            $table->boolean("vente")->default(false);
+            $table->float("prix_base")->nullable();
+            $table->timestamp("date_fin_enchere")->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
