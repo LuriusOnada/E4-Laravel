@@ -120,50 +120,6 @@
                                 @endadminOrOwner
                             </span>
                         </div>
-                        <div class="card-group">
-                            {{ debug($image->pivot) }}
-                            @foreach($image->pivot as $comment)
-                                @if($comment->comment)
-                                    <div class="card-header col-12">
-                                        {{ $image->users->where("id", $comment->user_id)->first()->name }}
-                                        @adminOrOwner($image->users->where("id", $comment->user_id)->first()->id)
-                                        <span class="pull-right">
-                                            <a class="toggleIcons"
-                                               href="#">
-                                                <i class="fa fa-cog"></i>
-                                            </a>
-                                            <!--<span class="menuIcons" style="display: none">
-                                                <a class="form-delete text-danger"
-                                                   href="route('image.commentdestroy', $comment) }}"
-                                                   data-toggle="tooltip"
-                                                   title="@lang('Supprimer ce commentaire')">
-                                                   <i class="fa fa-trash"></i>
-                                                </a>
-                                                <a class="description-manage"
-                                                   href="route('image.commentupdate', $comment) }}"
-                                                   data-toggle="tooltip"
-                                                   title="@lang('Modifier ce commentaire')">
-                                                   <i class="fa fa-comment"></i>
-                                                </a>
-                                            </span>
-                                            <form action="route('comment.destroy', $comment) }}" method="POST" class="hide">
-                                                @csrf
-                                                @method('DELETE')
-                                            </form>-->
-                                        </span>
-                                        @endadminOrOwner
-                                    </div>
-                                    <div class="card-body col-12">
-                                        {{ $comment->comment }}
-                                    </div>
-                                    <div class="card-subtitle col-12">
-                                        @if($comment->updated_at)
-                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $comment->updated_at, 'Europe/Paris')->diffForHumans() }}
-                                        @endif
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
                         <!--
                         Put here the comment part
                         if the actual user doesn't comment picture, add an input

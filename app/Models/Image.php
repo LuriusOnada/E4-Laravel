@@ -35,7 +35,7 @@ class Image extends Model
      */
     public function users()
     {
-        return $this->belongsToMany (User::class)->withPivot('rating', 'comment', 'updated_at');
+        return $this->belongsToMany (User::class)->withPivot('rating', 'updated_at');
     }
 
     /**
